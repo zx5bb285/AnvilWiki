@@ -1,6 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import { videoObjectJsonLd, urlListJsonLd, imageObjectJsonLd } from '~/lib/seo';
 import { slugifyTag, tagPath, tagsPath, recentPath } from '~/lib/url';
+import { locales } from '~/i18n/routing';
+
+/** First non-default locale in the routing config — undefined on an en-only site. */
+const nonDefault = locales.find((l) => l !== 'en');
 
 describe('slugifyTag', () => {
   it('lowercases and hyphenates whitespace', () => {
@@ -24,9 +28,10 @@ describe('tag/recent URL helpers', () => {
     expect(recentPath('en')).toBe('/recent/');
   });
   it('prefixes non-default locales', () => {
-    expect(tagsPath('ja')).toBe('/ja/tags/');
-    expect(tagPath('fire-boss', 'ja')).toBe('/ja/tags/fire-boss/');
-    expect(recentPath('ja')).toBe('/ja/recent/');
+    if (!nonDefault) return; // en-only site: nothing to exercise (add a locale to re-enable)
+    expect(tagsPath(nonDefault)).toBe(`/${nonDefault}/tags/`);
+    expect(tagPath('fire-boss', nonDefault)).toBe(`/${nonDefault}/tags/fire-boss/`);
+    expect(recentPath(nonDefault)).toBe(`/${nonDefault}/recent/`);
   });
 });
 
