@@ -58,6 +58,13 @@ export async function getEntryWithFallback(
   // getEntry() expects the id WITHOUT the extension. This is an Astro 5
   // inconsistency. We always query without extension here.
   const id = `${locale}/${category}/${slug}`;
+  // Compute the fallback id OUTSIDE the branch below. On a single-locale site
+  // (routing.ts listing only the default), `locale !== defaultLocale` is
+  // statically false, TS narrows inside the branch until the inline template
+  // literal collapses to `never`, and getEntry()'s typed overloads all reject
+  // it. Hoisting keeps the id a plain string template regardless of locale
+  // count.
+  const fallbackId = `${defaultLocale}/${category}/${slug}`;
 
   // 1. Try the requested locale first.
   const requested = await getEntry('wiki', id);
@@ -67,7 +74,7 @@ export async function getEntryWithFallback(
 
   // 2. Fall back to English (default locale).
   if (locale !== defaultLocale) {
-    const fallback = await getEntry('wiki', `${defaultLocale}/${category}/${slug}`);
+    const fallback = await getEntry('wiki', fallbackId);
     if (fallback && isPublished(fallback)) {
       return { entry: fallback, servedLocale: defaultLocale, isFallback: true };
     }
