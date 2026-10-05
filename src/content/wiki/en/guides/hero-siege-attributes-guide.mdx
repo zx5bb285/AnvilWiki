@@ -1,0 +1,73 @@
+---
+title: "Hero Siege Attributes Guide: What Every Stat Point Buys (S10)"
+description: "A per-point reference for Hero Siege attributes: what Strength, Dexterity, Intelligence, Energy, Armor and Vitality each buy, plus the Vitality dispute."
+category: "guides"
+image: '../../../../assets/covers/en-guides-hero-siege-attributes-guide.png'
+date: 2026-10-05
+lastModified: 2026-10-05
+draft: false
+gameVersion: "S10"
+tags: ["systems", "beginner"]
+summary: "Every attribute point in Hero Siege buys a specific, documented effect — and a few of those numbers are disputed by the community. This reference lists the official per-point effect of Strength, Dexterity, Intelligence, Energy, Armor and Vitality, explains the All Talents affix, and shows why gear affixes eventually dwarf raw points."
+faq:
+  - question: "How much health does Vitality give in Hero Siege?"
+    answer: "Official documentation records +6.5 life per point, while long-standing community sources record +5 — the two disagree and nothing has publicly settled it. Treat the value as community-documented and patch-sensitive, and read your own health bar before and after allocating."
+  - question: "What does Dexterity do in Hero Siege?"
+    answer: "Per point: +8 attack rating, which is your chance to hit, and +0.125% critical damage. It is a precision stat rather than a raw damage stat — the flat physical damage lives in Strength, and the magic scaling lives in Intelligence."
+  - question: "Should melee characters put points into Energy?"
+    answer: "Only if their skills scale with it. Skill scaling follows the skill, not the class fantasy — some melee-adjacent kits read Energy, others read Strength. Check what your actual damage skills scale off before spending points, and let gear carry the rest."
+---
+
+import Callout from '~/components/mdx/Callout.astro';
+
+## What Does Each Attribute Point Buy?
+
+A stat point in Hero Siege is a purchase, and most players spend it blind. The table below is the documented price list — each line is what one point deposits into your character — so deciding where points go stops being folklore and becomes arithmetic.
+
+<Callout type="warn" title="Patch-sensitive numbers">
+These per-point values come from official documentation plus community records, and they have drifted across patches. Verify them against your own character sheet before planning a build around a decimal point.
+</Callout>
+
+| Attribute | Documented per-point effect |
+| --- | --- |
+| Strength | +1% attack damage, +1 added physical damage |
+| Dexterity | +8 attack rating, +0.125% critical damage |
+| Intelligence | +1% magic skill damage |
+| Energy | +4 maximum mana, improved base mana regeneration |
+| Armor | +5 defense; physical damage taken −0.25%, with diminishing returns past 25% reduction |
+| Vitality | +6.5 life per official documentation — but see the dispute below |
+
+The Vitality row deserves its own paragraph, because it is the one number the community never agreed on. Official documentation records **+6.5 life per point**; long-standing community sources record **+5**. Both circulate, no patch note has publicly settled the disagreement, and the gap is large enough to matter on a health-focused build. The honest position: this stat's documentation is split and patch-sensitive — read your own health bar before and after a point, and trust what you see.
+
+## Which Points Are Worth Taking, Then?
+
+The table answers what a point buys; it cannot answer what you should buy, because that depends on what your **skills** scale with — and Hero Siege's skills scale off different attributes by design. A fire kit reads Intelligence; a bow kit reads Dexterity for accuracy and Strength for the physical line; some classes split routes entirely. The clearest example is the [Nomad](/items/hero-siege-nomad-bis/), whose damage skills divide between a Strength-scaled physical route and an Energy-scaled magic route — one character, two genuinely different builds.
+
+So the working method: open your skill details, find what each damage skill actually reads, then spend points there. Everything else is decoration.
+
+## What Is the "All Talents" Affix?
+
+You will see **All Talents** on items, and it does what it says: it raises the level of every talent you have already allocated points into. That makes it unusual among affixes — it multiplies a choice you made rather than adding a new one, which is why it tends to appear on build-defining gear. The same gear-side logic continues one step up the power ladder: [augments](/items/hero-siege-augments-guide/) pile further investment onto a finished piece instead of replacing it.
+
+## Why Does Gear Beat Raw Points?
+
+Ask endgame players where their power comes from and the answer is a gear list, not a stat sheet. The community consensus is blunt: equipment affixes dwarf raw attributes once you are past the campaign. A point buys +1% of one thing; an affix line buys many times that, plus effects no attribute offers at all.
+
+Two practical consequences follow:
+
+- **Do not agonize over early points.** They are real but small; the [beginner guide](/guides/hero-siege-beginner-guide/) has bigger priorities for your first hours — campaign progress and stash habits.
+- **Do agonize over gear sources.** Rerolling affixes on a good base is where builds actually get made — the [crafting guide](/guides/hero-siege-crafting-guide/) covers the cube that does it, and [league starter builds](/guides/hero-siege-league-starter-builds/) show what a gear-first plan looks like from day one.
+
+## Attributes FAQ
+
+### Do attributes matter more than gear?
+
+No — the opposite, past the early game. Raw points produce small, linear, documented effects; gear affixes produce large ones plus unique effects. Points matter most when they feed skills that multiply them, which is exactly why checking skill scaling comes before any allocation plan.
+
+### What is the difference between Strength and Intelligence?
+
+Strength feeds the physical side: +1% attack damage and +1 flat physical damage per point. Intelligence feeds magic skills at +1% per point. Which of the two matters to your build is decided by your skills' scaling, not by your class's weapon.
+
+### Does Armor keep getting better the more you stack it?
+
+Slower and slower. Each point adds 5 defense and reduces physical damage taken by 0.25%, but the reduction follows diminishing returns after you pass 25% — stacking past that buys progressively less mitigation per point than the first investments did.
