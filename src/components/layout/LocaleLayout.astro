@@ -9,6 +9,7 @@ import BaseLayout from './BaseLayout.astro';
 import SiteHeader from '~/components/header/SiteHeader.astro';
 import SiteFooter from '~/components/footer/SiteFooter.astro';
 import StickyBanner from '~/components/ads/StickyBanner.astro';
+import AdsterraBanner from '~/components/ads/AdsterraBanner.astro';
 import { type Locale } from '~/i18n/routing';
 import { getUi } from '~/i18n/ui';
 
@@ -47,6 +48,13 @@ const shared = getUi(locale).shared as unknown as Record<string, any>;
   </a>
   <SiteHeader locale={locale} currentPath={currentPath} availableLocales={availableLocales} />
   <StickyBanner />
+  {/* Adsterra leaderboard — the AdSense sticky slot's twin for forks monetizing
+      via Adsterra. Gated independently (PUBLIC_ADSTERRA_SLOT_LEADERBOARD), so
+      the two sticky banners only ever stack if both env groups are set. */}
+  <AdsterraBanner unit="leaderboard" sticky desktopOnly />
+  {/* Adsterra mobile strip — static on purpose (NOT sticky: the template bans
+      mobile sticky strips, see StickyBanner's header comment); scrolls away. */}
+  <AdsterraBanner unit="mobile" mobileOnly />
   <main id="main" class="mx-auto min-h-[calc(100vh-3.5rem)] max-w-7xl px-4 py-8">
     <slot />
   </main>

@@ -30,6 +30,12 @@ PUBLIC_SPONSOR_URL = ""
 PUBLIC_SPONSOR_IMAGE_URL = ""
 # Cloudflare Web Analytics — blank = disabled.
 PUBLIC_CF_BEACON_TOKEN = ""
+# Adsterra banners (docs/ads.md §3) — "1" = slot on, "" = slot off.
+# Each unit's snippet (with its key) lives in public/ads/<slot>.html;
+# banners are consent-gated (mounted only after cookie-banner accept).
+PUBLIC_ADSTERRA_SLOT_LEADERBOARD = "1"
+PUBLIC_ADSTERRA_SLOT_MOBILE = "1"
+PUBLIC_ADSTERRA_SLOT_RECTANGLE = "1"
 # Optional slots (empty = disabled) — fill HERE, not the dashboard:
 #PUBLIC_ADSENSE_CLIENT = ""
 #PUBLIC_ADSENSE_SLOT_STICKY = ""

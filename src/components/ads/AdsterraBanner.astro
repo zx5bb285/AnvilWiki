@@ -1,0 +1,226 @@
+---
+/**
+ * AdsterraBanner — one Adsterra banner unit, iframe-isolated per docs/ads.md §3.
+ *
+ * WHY iframe isolation (docs/ads.md "广告位怎么挂"): every Adsterra unit
+ * configures itself through the window.atOptions global — pasting two units
+ * into one page lets the second atOptions clobber the first (the A slot ends
+ * up rendering with B's config). Each unit therefore lives in its own HTML
+ * file under public/ads/ (the file carries the Adsterra snippet verbatim,
+ * keys included) and is mounted here as a sandboxed iframe. The sandbox
+ * omits allow-top-navigation on purpose: some creatives try to navigate the
+ * host page away, and that permission is what would let them.
+ *
+ * Slots (each gated on its own env var — empty = nothing rendered):
+ *   leaderboard → PUBLIC_ADSTERRA_SLOT_LEADERBOARD   728×90 desktop sticky top
+ *   mobile      → PUBLIC_ADSTERRA_SLOT_MOBILE        320×50 static strip (NOT
+ *                 sticky — the template deliberately bans mobile sticky
+ *                 strips, see StickyBanner's header comment)
+ *   rectangle   → PUBLIC_ADSTERRA_SLOT_RECTANGLE     300×250 in-content
+ *
+ * Consent: iframes mount only after the cookie-banner accept — the same gate
+ * as GA/AdSense. When any Adsterra slot env var is set, BaseLayout renders
+ * CookieConsent and its __awLoadTrackers() hook calls the __awMountAdsterra
+ * mount function defined here. Decline → ads never load. The placeholder
+ * reserves the unit's height so accepting causes no layout shift (CLS).
+ */
+import { getUi } from '~/i18n/ui';
+import { isLocale } from '~/i18n/routing';
+
+interface Props {
+  /** Which slot — maps to a PUBLIC_ADSTERRA_SLOT_* env var + public/ads/ file. */
+  unit: 'leaderboard' | 'mobile' | 'rectangle';
+  /** Sticky under the header with a dismiss button (desktop leaderboard). */
+  sticky?: boolean;
+  /** Render only below md (mobile strip). */
+  mobileOnly?: boolean;
+  /** Render only at md and up (desktop leaderboard). */
+  desktopOnly?: boolean;
+  /** iframe loading="lazy" — for below-the-fold units (in-content rectangle). */
+  lazy?: boolean;
+}
+
+const SLOT_ENV: Record<Props['unit'], string> = {
+  leaderboard: 'PUBLIC_ADSTERRA_SLOT_LEADERBOARD',
+  mobile: 'PUBLIC_ADSTERRA_SLOT_MOBILE',
+  rectangle: 'PUBLIC_ADSTERRA_SLOT_RECTANGLE',
+};
+
+const SLOT_SRC: Record<Props['unit'], string> = {
+  leaderboard: '/ads/leaderboard-728x90.html',
+  mobile: '/ads/mobile-banner-320x50.html',
+  rectangle: '/ads/rectangle-300x250.html',
+};
+
+const SLOT_SIZE: Record<Props['unit'], { w: number; h: number }> = {
+  leaderboard: { w: 728, h: 90 },
+  mobile: { w: 320, h: 50 },
+  rectangle: { w: 300, h: 250 },
+};
+
+const {
+  unit,
+  sticky = false,
+  mobileOnly = false,
+  desktopOnly = false,
+  lazy = false,
+} = Astro.props;
+const enabled = !!(import.meta.env[SLOT_ENV[unit]] as string | undefined);
+const { w, h } = SLOT_SIZE[unit];
+const src = SLOT_SRC[unit];
+
+const current = Astro.currentLocale;
+const sharedStrings =
+  current && isLocale(current)
+    ? ((getUi(current).shared ?? {}) as unknown as Record<string, string>)
+    : {};
+const adLabel = sharedStrings.adLabel ?? 'Advertisement';
+const closeAd = sharedStrings.closeAd ?? 'Close ad';
+---
+
+{
+  enabled && sticky && (
+    <div
+      data-adsterra-sticky="1"
+      class="sticky top-14 z-30 hidden border-b border-border bg-background/95 py-2 backdrop-blur md:block"
+    >
+      {/* min-h reserves the 728×90 height — same CLS trade-off as StickyBanner:
+          reserved blank space beats the whole page jumping when the iframe fills. */}
+      <div class="relative mx-auto flex min-h-[90px] max-w-4xl items-center justify-center px-4">
+        <div
+          data-adsterra-src={src}
+          data-adsterra-w={w}
+          data-adsterra-h={h}
+          data-adsterra-lazy={lazy ? '1' : '0'}
+          class="w-full"
+          style={`min-height:${h}px`}
+        />
+        <button
+          type="button"
+          data-adsterra-dismiss
+          aria-label={closeAd}
+          class="absolute -right-1 -top-1 rounded-full border bg-background p-1 text-muted-foreground transition hover:bg-muted"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-3 w-3"
+          >
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  )
+}
+
+{
+  enabled && mobileOnly && (
+    <div class="border-b border-border bg-background/95 py-2 md:hidden">
+      <div class="flex min-h-[50px] items-center justify-center">
+        <div
+          data-adsterra-src={src}
+          data-adsterra-w={w}
+          data-adsterra-h={h}
+          data-adsterra-lazy={lazy ? '1' : '0'}
+          class="w-full"
+          style={`min-height:${h}px`}
+        />
+      </div>
+    </div>
+  )
+}
+
+{
+  enabled && !sticky && !mobileOnly && (
+    <div class="my-8 flex min-h-[250px] flex-col items-center justify-center">
+      <span class="mb-1 text-[10px] uppercase tracking-wider text-muted-foreground">{adLabel}</span>
+      <div
+        data-adsterra-src={src}
+        data-adsterra-w={w}
+        data-adsterra-h={h}
+        data-adsterra-lazy={lazy ? '1' : '0'}
+        class="w-full"
+        style={`min-height:${h}px`}
+      />
+    </div>
+  )
+}
+
+{
+  enabled && (
+    <script is:inline>
+      (() => {
+        var KEY = 'aw-cookie-consent';
+        var mountAll = function () {
+          document.querySelectorAll('[data-adsterra-src]').forEach(function (ph) {
+            var el = ph;
+            var iframe = document.createElement('iframe');
+            iframe.src = el.getAttribute('data-adsterra-src') || '';
+            iframe.title = 'Advertisement';
+            iframe.loading = el.getAttribute('data-adsterra-lazy') === '1' ? 'lazy' : 'eager';
+            // docs/ads.md sandbox: four permissions, never allow-top-navigation.
+            iframe.setAttribute(
+              'sandbox',
+              'allow-scripts allow-same-origin allow-popups allow-forms'
+            );
+            iframe.style.cssText =
+              'width:100%;max-width:' +
+              (el.getAttribute('data-adsterra-w') || '300') +
+              'px;height:' +
+              (el.getAttribute('data-adsterra-h') || '250') +
+              'px;border:0';
+            el.replaceWith(iframe);
+          });
+        };
+        var w = window;
+        w['__awMountAdsterra'] = mountAll;
+        var stored = null;
+        try {
+          stored = localStorage.getItem(KEY);
+        } catch {
+          /* storage unavailable */
+        }
+        if (stored === 'accepted') {
+          mountAll();
+        }
+        // 'declined' → never mount. No choice yet → CookieConsent's accept
+        // path calls window.__awLoadTrackers() (BaseLayout), which calls
+        // __awMountAdsterra — no separate event wiring needed.
+      })();
+
+      // Sticky dismiss — same degrade-gracefully pattern as StickyBanner.
+      (() => {
+        var wrap = document.querySelector('[data-adsterra-sticky]');
+        if (!wrap) return;
+        var btn = wrap.querySelector('[data-adsterra-dismiss]');
+        if (!btn) return;
+        var KEY = 'adsterra-sticky-dismissed';
+        var dismissed = false;
+        try {
+          dismissed = localStorage.getItem(KEY) === '1';
+        } catch {
+          /* storage unavailable */
+        }
+        if (dismissed) {
+          wrap.remove();
+          return;
+        }
+        btn.addEventListener('click', function () {
+          try {
+            localStorage.setItem(KEY, '1');
+          } catch {
+            /* storage unavailable */
+          }
+          wrap.remove();
+        });
+      })();
+    </script>
+  )
+}

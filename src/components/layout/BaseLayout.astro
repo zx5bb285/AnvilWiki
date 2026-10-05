@@ -112,6 +112,14 @@ const gaId = import.meta.env.PUBLIC_GA_ID as string | undefined;
 const cfBeaconToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN as string | undefined;
 const gscVerification = import.meta.env.PUBLIC_GSC_VERIFICATION as string | undefined;
 const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT as string | undefined;
+// Adsterra banner slots (docs/ads.md §3; AdsterraBanner.astro). Any slot on →
+// the consent banner must render even without GA/AdSense, because the banner
+// iframes are consent-gated too (mounted by __awMountAdsterra on accept).
+const adsterraEnabled = !!(
+  (import.meta.env.PUBLIC_ADSTERRA_SLOT_LEADERBOARD as string | undefined) ||
+  (import.meta.env.PUBLIC_ADSTERRA_SLOT_MOBILE as string | undefined) ||
+  (import.meta.env.PUBLIC_ADSTERRA_SLOT_RECTANGLE as string | undefined)
+);
 
 // Consent banner labels (locale JSON `shared.*`; hardcoded fallbacks for a
 // locale whose JSON hasn't been translated yet).
@@ -221,7 +229,7 @@ const privacyLabel = footerStrings.privacyPolicy ?? 'Privacy Policy';
       the visitor accepts. See GDPR note in AGENTS.md. No tracking env vars
       → this block renders nothing → zero JS.
     */}
-    {(gaId || adsenseClient) && (
+    {(gaId || adsenseClient || adsterraEnabled) && (
       <script is:inline define:vars={{ gaId, adsenseClient }}>
         window.__awLoadTrackers = () => {
           if (window.__awTrackersLoaded) return;
@@ -246,6 +254,12 @@ const privacyLabel = footerStrings.privacyPolicy ?? 'Privacy Policy';
               'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' +
               adsenseClient;
             document.head.appendChild(s);
+          }
+          // Adsterra banner iframes ride the same consent signal — the mount
+          // hook is defined per-slot by AdsterraBanner.astro.
+          const w = window;
+          if (typeof w['__awMountAdsterra'] === 'function') {
+            w['__awMountAdsterra']();
           }
         };
       </script>
@@ -310,8 +324,8 @@ const privacyLabel = footerStrings.privacyPolicy ?? 'Privacy Policy';
   </head>
   <body class="min-h-screen bg-background text-foreground antialiased">
     <slot />
-    {/* Consent banner — only rendered when tracking env vars are set. */}
-    {(gaId || adsenseClient) && (
+    {/* Consent banner — only rendered when tracking (or Adsterra) env vars are set. */}
+    {(gaId || adsenseClient || adsterraEnabled) && (
       <CookieConsent
         labels={{
           title: consentLabels.title,

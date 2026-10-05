@@ -16,6 +16,7 @@ import { Icon } from 'astro-icon/components';
 import { render } from 'astro:content';
 import LocaleLayout from '~/components/layout/LocaleLayout.astro';
 import InContentAd from '~/components/ads/InContentAd.astro';
+import AdsterraBanner from '~/components/ads/AdsterraBanner.astro';
 import AffiliateSuggestion from '~/components/ads/AffiliateSuggestion.astro';
 import Comments from '~/components/article/Comments.astro';
 import TableOfContents from '~/components/article/TableOfContents.astro';
@@ -392,8 +393,10 @@ const jsonLd = [
       )
     }
 
-    {/* In-content ad before related articles */}
+    {/* In-content ads before related articles — AdSense responsive unit and
+        Adsterra 300×250 are gated independently (both empty → nothing). */}
     <InContentAd />
+    <AdsterraBanner unit="rectangle" lazy />
 
     {/* Related */}
     {
