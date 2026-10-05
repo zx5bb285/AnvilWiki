@@ -50,7 +50,7 @@ Hero Siege 是赛季制 live-service:同一关键词的"正确答案"随赛季�
 
 > 图例:✅ = 已上线(2026-09-25);素材缩写:**PN** = 官方 patch notes(playherosiege.com 新闻区)· **YT** = 素材库视频(括号内为 YouTube 视频 ID,见 `seo-reports/hero-siege-material-sources.md`)· **IG** = 进游戏实测(数值终审)。待建页的批次归属见第四节日历。
 
-### 2.1 Bosses(已建 18,目标 ~20 页)
+### 2.1 Bosses(已建 19,目标 ~20+ 页)
 
 **游戏全貌**:boss 分三层——① **九大 Act 关底 boss**(campaign,Act 1-9;Act 9 为 S10 新增终盘);② **Uber 层**:经典三杰 Damien / Reaper / Sung Lee → 现代层 Gabriel / Amun Ra / Luna → S10 新三杰 **Phantom Leviathan / Captain Grimtide / Blood Maiden**;③ **难度变体**(Inferno 全 Act 通关路线)。页面形态:`boss` 数据卡 + 阶段式打法 + 视频/画廊。**定位:结构化 Boss 数据库**——逐 boss 卡是大站不做的错位竞争点。
 
@@ -71,9 +71,9 @@ Hero Siege 是赛季制 live-service:同一关键词的"正确答案"随赛季�
 | B7 | 经典三杰拆单页 ×3(hero siege uber damien / reaper / sung lee) | hero-siege-damien-boss / -reaper-boss / -sung-lee-boss | YT:Benderdin(X58xZcymvb0)拆分 + IG 补卡 |
 | B7 | 现代层拆单页 ×3(gabriel / amun-ra / luna) | hero-siege-gabriel-boss / -amun-ra-boss / -luna-boss | B4 合页素材拆分 + amaggixz(IwLbEBtuPPQ) |
 | B7 | Act 关底精选单页 ×5(按热度先 Act 1/3/5/7/9,含 Act 9 终盘 Cthulhu 型专页) | hero-siege-act-1-boss 等 | YT:Jcob 九 Act Inferno 实战(qffIoObV9xw)+ Sleepy Cat Boss 通用教学(b-VKVjSAVhY)+ IG 补卡 |
-| B9 | Inferno 难度全 Act 通关路线(hero siege inferno acts) | hero-siege-inferno-acts-guide | YT:Jcob(qffIoObV9xw)+ IG |
+| B9 | Inferno 难度全 Act 通关路线(hero siege inferno acts)✅ 2026-10-05 已发布 | hero-siege-inferno-acts-guide | YT:Jcob(qffIoObV9xw)+ IG |
 
-### 2.2 Guides(已建 37,目标 ~45 页,流量主战场)
+### 2.2 Guides(已建 44,目标 ~50 页,流量主战场)
 
 **游戏全貌**:Hero Siege 的玩法系统树——① **三棵成长树**:职业技能树 + **Talent 树**(S10 +600 节点)+ **Ether Tree**(S10 +100 节点 + Ether Quests)+ **Incarnation Tree**(S9 引入,1600+ 节点,100 级解锁);② **endgame 双轨**:虫洞无限爬层(社区打到 WH137)+ Uber Boss;③ **经济环**:Tarethiel Market(S10 rework)+ 刷金 + 采矿业 + Chaos Towers;④ **进阶系统**:Codex of Eternity(自定义词缀区,刷 Angelic)、relics(可升 10 级,S10 加 Relic Storage)、难度阶梯(Normal→Nightmare(S10 rework)→Hell→Inferno);⑤ **职业**:wiki.gg 记 22 个(S5 时点,S10 现值待核)——已知名单含 Viking、Pyromancer、Amazon、Marksman、Butcher、Bard、Pirate、Prophet、Demon Spawn、Paladin、Nomad、Stormweaver、Marauder、Plague Doctor、Shield Lancer、Jötunn(S10 起转免费四职业)等。
 
@@ -103,10 +103,10 @@ Hero Siege 是赛季制 live-service:同一关键词的"正确答案"随赛季�
 | B5 | 转免费四职业构筑(hero siege marauder build 等,**新闻钩子**) | hero-siege-marauder-build / -plague-doctor-build / -shield-lancer-build / -jotunn-build | 钩子源:Mobalytics(S10 起免费);机制待 IG/PN 核 |
 | B5 | Butcher / Bard / Amazon 构筑 | hero-siege-butcher-build / -bard-build / -amazon-build | YT:JuxtAPoser Butcher(e3WuTPYYerI)+ Jcob Bard(qffIoObV9xw)+ Amazon 官方 trailer 沿革(g75lotaqqrs) |
 | B8 | 全职业收尾:Prophet / Demon Spawn / Pirate / Illusionist 及名单其余 | 先 IG 核当前全职业名单再定 slugs | YT:Demon Spawn leveling(um8KYkkUcWc);其余职业矩阵同模板反重复 |
-| B9 | 升级 1-100 快线(hero siege leveling guide) | hero-siege-leveling-guide | YT:DonTheCrown(p0Lix1Dn6A8)+ Sleepy Cat(hcLj04ph3vM) |
+| B9 | 升级 1-100 快线(hero siege leveling guide)✅ 2026-10-05 已发布(同批另发 attributes / crafting / hardcore&coop / walkthrough ×3) | hero-siege-leveling-guide | YT:DonTheCrown(p0Lix1Dn6A8)+ Sleepy Cat(hcLj04ph3vM) |
 | 滚动 | 赛季层:S11 tier list / S11 starters / 新系统页(每赛季一轮替换) | — | PN |
 
-### 2.3 Items(已建 13,目标 ~25-40 页,选择性数据库)
+### 2.3 Items(已建 20,目标 ~25-40 页,选择性数据库)
 
 **游戏全貌**:loot 分随机词缀装备 + **1000+ 手工 uniques**,稀有度阶梯普通 → … → **Satanic / Set / Heroic / Angelic / Unholy**(顶部两级是社区刷 "first Angelic" 的 holy grail);S10 新增 24 件;配套系统 **runes / rune words**(类 Diablo 镶嵌配方)、**relics**(可升 10 级 + S10 Relic Storage)、augments / glyphs;获取靠掉落 + 市场(Tarethiel Market,S10 rework)。**定位:选择性数据库**——不穷举,按 meta 相关性做,与职业矩阵 1:1 挂 BiS 页。
 
@@ -124,7 +124,7 @@ Hero Siege 是赛季制 live-service:同一关键词的"正确答案"随赛季�
 | B3 | BiS 起步 2 篇(hero siege viking bis 等) | hero-siege-viking-bis / -marksman-bis | 对应职业构筑视频源(Graxy_TV DM-4icNrU1w / JuxtAPoser 44HjYn2y0i4) |
 | B6 | BiS 补全(先补 B1 六职业余量 4 篇,再随 B5 新职业扩展) | hero-siege-pyromancer-bis 等 | 职业矩阵对应视频源 |
 | B6 | Rune words 逐条页 ×5-10(hero siege runewords) | hero-siege-runewords(总页)+ 高频条目 | IG + wiki.gg 纠错参照 |
-| B10 | 明星单件页 ×8-15(市场价高热度大者先)· 套装页 · Relics/Augments/Glyphs 专页 ×3 | hero-siege-<item-name> | IG + 市场观察 + GSC 数据回流;YT:Craft & Upgrade(WuYgkqMe8uY)+ Codex 刷 Angelic(WqEmmQBQDWs) |
+| B10 | 明星单件首滚 ✅ 2026-10-05 已发布:augments 专页(原 glyphs 专页因 S9 移除系统而取消,史段并入 augments 页)+ 单件 ×6(aimbot-exe / sung-lees-flask-of-carnage / war-gods-lance / leviathans-blood / amun-ras-demise / azazels-despair) | hero-siege-<item-name> | herosiegedata + wiki.gg + Mobalytics/metaroad 多源核实;余量随 GSC 数据续滚 |
 
 ### 2.4 Codes(已建 1,单页常青)
 
@@ -189,13 +189,13 @@ Hero Siege 是赛季制 live-service:同一关键词的"正确答案"随赛季�
 | **B6** | 第 6 周 | **BiS 补全 + rune words** | items ×5:BiS 余量 4(Pyromancer / Paladin / Nomad / Stormweaver)+ runewords 总页(§2.3) | ✅ 2026-10-01 已发布(提前) |
 | **B7** | 第 7-8 周 | **补全:逐 Boss 深化** | bosses ×11:经典三杰拆卡 ×3 + 现代层拆卡 ×3 + Act 关底精选 ×5(Act 1/3/5/7/9,含 Act 9 Cthulhu 专页)(§2.1) | ✅ 2026-10-01 已发布(提前) |
 | **B8** | 第 9 周 | **补全:全职业收尾** | guides ×11:Prophet / Necromancer / Redneck / Pirate / Illusionist / Demon Spawn / Samurai / Shaman / White Mage / Demon Slayer / Exo——**全职业 24/24 收满**(§2.2) | ✅ 2026-10-01 已发布(提前) |
-| **B9** | 第 10 周 | **补全:流程与机制参考层** | guides ×~7:Act 分段 walkthrough ×3(1-3 / 4-6 / 7-9)+ attributes + crafting + hardcore&coop + leveling(§2.1/2.2) | 待启动 |
-| **B10** | 第 11 周+ | **补全:物品深水区** | items ×10-15 滚动:明星单件 / 套装 / relics-augments-glyphs(§2.3) | 待启动 |
+| **B9** | 第 10 周 | **补全:流程与机制参考层** | guides ×7:Act 分段 walkthrough ×3(1-3 / 4-6 / 7-9)+ attributes + crafting + hardcore&coop + leveling + bosses ×1:inferno-acts-guide(§2.1/2.2) | ✅ 2026-10-05 已发布 |
+| **B10** | 第 11 周+ | **补全:物品深水区** | items ×7 首滚:augments 系统页(含 Glyphs S9 已移除的诚实史段,原 glyphs 专页取消)+ 明星单件 ×6(aimbot-exe / sung-lees-flask-of-carnage / war-gods-lance / leviathans-blood / amun-ras-demise / azazels-despair)(§2.3) | ✅ 2026-10-05 已发布(首滚;余量随 GSC 数据续滚) |
 | 滚动 | 随时 | codes 出码即更 / 7.0.x 平衡补丁 → tier+构筑刷新 `lastModified` / **S11 预热**(预估 2027-01,赛季前 2 周即 2026-12 下旬启动预览词) | §2.4 | 常态 |
 
-### 补全批次(B9-B10)的定位说明
+### 补全批次收官说明(2026-10-05)
 
-B1-B8 跑完 **69 页**,四栏目骨架与「意图全覆盖」四个缺口中的前两个已补齐:① ✅ **Boss 已从合页拆到逐 boss 卡**(B7 十一篇:经典三杰 + 现代三杰 + Act 1/3/5/7/9 各一张);② ✅ **全职业矩阵收满 24/24**(B8 十一篇收口)。剩余两个缺口交给 B9-B10:③ **Act 分段 walkthrough 整层空白**(新手大流量词);④ 物品的套装/打造/明星单件深水区。B9-B10 补齐后,成熟态 ~90-110 页,即转入「保鲜 + 按 GSC 数据扩页」模式。优先级原则不变:每篇立项必须有素材来源与真实搜索意图,不为凑"完整"造薄页。
+B1-B10 跑完 **84 页**,「意图全覆盖」四个缺口全部补齐:① ✅ Boss 从合页拆到逐 boss 卡(B7)+ Inferno 路线页(B9);② ✅ 全职业矩阵 24/24(B8);③ ✅ Act 分段 walkthrough ×3(B9,新手大流量词);④ ✅ 物品深水区首滚(B10:augments 系统 + 6 件明星单件)。**站点自此转入「保鲜 + 按 GSC 数据扩页」常态模式**:items 深水区余量(套装深页/更多单件)、seasonal 层轮换(S11 预热 2026-12 下旬启动)与 GSC 回流词插队立项。优先级原则不变:每篇立项必须有素材来源与真实搜索意图,不为凑"完整"造薄页。
 
 ### 已收口决策
 
@@ -215,13 +215,13 @@ B1-B8 跑完 **69 页**,四栏目骨架与「意图全覆盖」四个缺口中�
 
 | 板块 | 已建 | 待建(按批) | 成熟态 |
 |---|---|---|---|
-| Bosses | 18 | B9 ×1 → 逐 Act 补全滚动 | ~20 |
-| Guides | 37 | B9 ×~7 → 每赛季 3-5 滚动 | ~45 |
-| Items | 13 | B10 ×10-15 | ~25-40 |
+| Bosses | 19 | 逐 Act 补全滚动(Act 2/6/8 关底卡等) | ~20+ |
+| Guides | 44 | 每赛季 3-5 滚动 + GSC 回流词 | ~50 |
+| Items | 20 | B10 余量滚动(套装深页/更多明星单件) | ~25-40 |
 | Codes | 1 | 0(常青单页滚动维护) | 1 |
-| **合计** | **69** | **B9-B10 ≈ +20** | **~90-110** |
+| **合计** | **84** | 常态滚动 | **~90-110** |
 
-执行顺序进展(2026-10-01 更新):首批 14 篇转正上线(09-15/16)→ B1 职业矩阵 6 篇(09-25)→ B2+B3+B4+B5 共 22 篇于 09-29 一次性提前发布(站点 42 篇)→ **B6+B7+B8 共 27 篇于 10-01 一次性提前发布**(站点 **69 篇**:guides 37 / bosses 18 / items 13 / codes 1——bosses 已过合页阶段进入逐 boss 卡,guides 全职业 24/24 收满),剩余 B9-B10 按日历推进,每批 GSC 复盘后允许调序。注意:字幕提取通道本轮仍受 YouTube 限流(429),B6/B7/B8 继续沿用「素材库已核实元数据 + 社区报告措辞 + 页内显式标注存疑处」口径产出——B7 的 Reaper 碎片数量(fandom/namu 冲突)与 Gabriel 位置未知都在页内如实声明而非选边;B6/B8 无技能数值细节,字幕恢复后走 anvil-refresh 补深。
+执行顺序进展(2026-10-05 更新):首批 14 篇转正上线(09-15/16)→ B1 职业矩阵 6 篇(09-25)→ B2+B3+B4+B5 共 22 篇(09-29,站点 42)→ B6+B7+B8 共 27 篇(10-01,站点 69)→ **B9+B10 共 15 篇于 10-05 发布**(站点 **84 篇**:guides 44 / bosses 19 / items 20 / codes 1)——**B1-B10 全部收官,四缺口补齐,转入保鲜 + GSC 扩页常态**。本批事实核查改走 Exa 通道(WebSearch/WebFetch 配额耗尽):九大 Act 全表、六主属性效果、Cube 五功能、Hardcore 规则均双源核实;两处计划修正——原 glyphs 专页因系统 S9 已移除而取消(augments 页内留诚实史段),Anubis/Amun Ra 线上页 Mos'Arathim 拼写纠错。字幕限流期间继续「社区报告措辞 + 页内存疑标注」口径,War God's Lance 的 S5 面板全定性处理。
 
 ## 七、B2 启动前一次性检查(2026-09-25 列,做完勾掉)
 
