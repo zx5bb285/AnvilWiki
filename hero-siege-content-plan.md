@@ -223,6 +223,8 @@ B1-B10 跑完 **84 页**,「意图全覆盖」四个缺口全部补齐:① ✅ B
 
 执行顺序进展(2026-10-05 更新):首批 14 篇转正上线(09-15/16)→ B1 职业矩阵 6 篇(09-25)→ B2+B3+B4+B5 共 22 篇(09-29,站点 42)→ B6+B7+B8 共 27 篇(10-01,站点 69)→ **B9+B10 共 15 篇于 10-05 发布**(站点 **84 篇**:guides 44 / bosses 19 / items 20 / codes 1)——**B1-B10 全部收官,四缺口补齐,转入保鲜 + GSC 扩页常态**。本批事实核查改走 Exa 通道(WebSearch/WebFetch 配额耗尽):九大 Act 全表、六主属性效果、Cube 五功能、Hardcore 规则均双源核实;两处计划修正——原 glyphs 专页因系统 S9 已移除而取消(augments 页内留诚实史段),Anubis/Amun Ra 线上页 Mos'Arathim 拼写纠错。字幕限流期间继续「社区报告措辞 + 页内存疑标注」口径,War God's Lance 的 S5 面板全定性处理。
 
+执行顺序进展(2026-10-09 追加):**E1 扩展批次 7 篇发布(`anvil-batch-articles` 挖词产线,站点 91 篇)**——Ether Quests / Chaos Tower / Tips & Tricks / Review 2026 / Classes 名录 / Patch Notes 追踪(⚠️ 维护型页面,每补丁更新 lastModified)/ Mobile 平台页。挖词方法:117 视频素材库逐词配锚 + 官方描述锚点 + 84 页存量防撞车;观察池记录 4 类有词无素材项(games-like / season-end 机制 / 无视频职业 BiS / S11 预览词排 2026-12 下旬)。Patch Notes 页承载 glyphs 式系统变动的披露窗口,7.0.x 每个补丁都是它的刷新点。
+
 ## 七、B2 启动前一次性检查(2026-09-25 列,做完勾掉)
 
 - [x] **git 提交整树**——2026-09-26 已完成(2 个 commit 推送至 zx5bb285/AnvilWiki,站点源码首次入库)
